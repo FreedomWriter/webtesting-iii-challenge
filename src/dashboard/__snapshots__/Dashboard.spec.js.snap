@@ -120,3 +120,5 @@ Object {
   "unmount": [Function],
 }
 `;
+
+exports[`Dashboard renders controls and display 1`] = `[Function]`;

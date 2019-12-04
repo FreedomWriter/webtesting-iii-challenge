@@ -5,9 +5,6 @@ import { within } from "@testing-library/dom/dist/@testing-library/dom.umd.js";
 // import "@testing-library/jest-dom/extend-expect";
 
 import Dashboard from "./Dashboard";
-import Display from "../display/Display";
-import Controls from "../controls/Controls";
-import { exportAllDeclaration } from "@babel/types";
 
 afterEach(rtl.cleanup);
 
