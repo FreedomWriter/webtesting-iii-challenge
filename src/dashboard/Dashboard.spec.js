@@ -1,21 +1,33 @@
 import React from "react";
 
-import * as rtl from "@testing-library/react";
-import { within } from "@testing-library/dom/dist/@testing-library/dom.umd.js";
-// import "@testing-library/jest-dom/extend-expect";
+import { render, cleanup } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 
 import Dashboard from "./Dashboard";
 
-afterEach(rtl.cleanup);
+afterEach(cleanup);
 
-test("Dashboard renders", () => {
-  const wrapper = rtl.render(<Dashboard />);
-
-  expect(wrapper).toMatchSnapshot();
+test("renders <Display/>", () => {
+  const { getByText } = render(<Dashboard />);
+  expect(getByText(/Unlocked/i)).toBeInTheDocument();
 });
 
-test("Dashboard renders controls and display", () => {
-  const wrapper = rtl.render(<Dashboard />);
-
-  expect(wrapper.asFragment).toMatchSnapshot();
+test("Renders <Controls />", () => {
+  const { getByText } = render(<Dashboard />);
+  expect(getByText(/Close Gate/i)).toBeInTheDocument();
 });
+
+//My first attempt:
+// test("Dashboard renders", () => {
+//   const wrapper = render(<Dashboard />);
+
+//   expect(wrapper).toMatchSnapshot();
+// });
+
+// My second attempt:
+// test("Dashboard renders controls and display", () => {
+//   const wrapper = render(<Dashboard />);
+//   expect(wrapper.findByTestId("dashboard")).toBeDefined();
+//   expect(wrapper.findByTestId("controls")).toBeDefined();
+//   expect(wrapper.asFragment).toMatchSnapshot();
+// });
